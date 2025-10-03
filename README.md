@@ -56,6 +56,21 @@ These studies provide the foundation for testing caption-based augmentation as a
 - Contribution to the broader discussion on data efficiency and robustness in multimodal learning.  
 
 ## Repository Structure (Draft)
+```
+capstone/
+├── README.md 
+├── main.py
+├── requirements.txt
+├── .gitmodules
+│
+└── lxmert/ ← LXMERT submodule repo
+├── README.md
+├── LICENSE
+├── src/
+├── data/
+├── run/
+└── snap/
+```
 in progress
 ## Submodules  
 This repository uses the [LXMERT](https://github.com/airsplay/lxmert) repo as a **submodule**.  
