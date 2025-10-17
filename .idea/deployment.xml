@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="akgrewal@access.ihpc.uts.edu.au:22 password" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="akgrewal@access.ihpc.uts.edu.au:22 password" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="akgrewal@access.ihpc.uts.edu.au:22 password">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/pycharm_project_279" local="$PROJECT_DIR$" />
+            <mapping deploy="/tmp/pycharm_project_279" local="/pycharm_projects/capstone" />
           </mappings>
         </serverdata>
       </paths>
