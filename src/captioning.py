@@ -7,23 +7,17 @@ import torch
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
 def generate_and_store_captions(input_folder, output_jsonl, limit=10):
-    """
-    Generate captions for a limited number of images (default 100) using BLIP.
-    Each line in the output is a JSON object: {"image_id": <filename>, "caption": <caption>}
-    """
+
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")
 
-    # Load BLIP model + processor
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
     model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base").to(device)
     model.eval()
 
-    # Collect and shuffle images
     image_files = sorted([f for f in os.listdir(input_folder) if f.lower().endswith(('.jpg', '.jpeg', '.png'))])
     random.shuffle(image_files)
 
-    # Limit to N images
     image_files = image_files[:limit]
     print(f"Found {len(image_files)} images (limited to {limit}) in {input_folder}")
 
@@ -33,7 +27,6 @@ def generate_and_store_captions(input_folder, output_jsonl, limit=10):
                 image_path = os.path.join(input_folder, img_name)
                 image = Image.open(image_path).convert("RGB")
 
-                # Generate caption
                 inputs = processor(images=image, return_tensors="pt").to(device)
                 out = model.generate(**inputs, max_new_tokens=30)
                 caption = processor.decode(out[0], skip_special_tokens=True)
@@ -45,8 +38,6 @@ def generate_and_store_captions(input_folder, output_jsonl, limit=10):
 
     print(f"\n✅ Captions saved to {output_jsonl}")
 
-
-# 🧩 This block must be OUTSIDE the function
 if __name__ == "__main__":
     generate_and_store_captions(
         input_folder="src/data/train2017",

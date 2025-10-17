@@ -17,7 +17,7 @@ def trim_dataset(source_folder, dest_folder, num_images=5000):
     print(f"Sample dataset created: {len(subset)} images saved in {dest_folder}")
 
 trim_dataset(
-    source_folder="data/train2017",   # Folder containing your large dataset
-    dest_folder="data/sample5000",    # Folder where 5000 random images will go
-    num_images=5000                   # Number of images to keep
+    source_folder="data/train2017",
+    dest_folder="data/sample5000",
+    num_images=5000
 )
