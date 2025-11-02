@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Launch Script For Miniconda3 (conda) Environment
+#
+# v1.0
+#
+
+# Anaconda bin directory location
+DIR="$HOME/miniconda3/bin"
+DIR2="/data/$USER/miniconda3/bin"
+
+if [ -d "$DIR" ] || [ -d "$DIR2" ]; then
+
+	echo ""
+	echo "	   	       Miniconda3 Conda Environment"
+	echo ""
+
+	bash --rcfile /data/$USER/wrapper/mconda_init.sh
+
+else
+
+	echo ""
+	# Miniconda is not installed in home or data directory
+	echo "Miniconda3 is NOT installed in your Home or Data directory. Please read the portal documentation for details."
+	echo ""
+
+	bash
+fi
+
